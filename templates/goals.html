@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Goals</h2>
+
+<form method="POST">
+    <label>Goal Title:</label>
+    <input type="text" name="title" required>
+
+    <label>Target Number:</label>
+    <input type="number" name="target" required>
+
+    <button type="submit">Add Goal</button>
+</form>
+
+<h3>Current Goals</h3>
+<ul>
+    {% for goal in goals %}
+        <li>
+            {{ goal.title }} - {{ goal.progress }}/{{ goal.target }}
+            {% if goal.completed %}✅ Completed{% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

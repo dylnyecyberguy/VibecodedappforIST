@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All Catches</h2>
+<ul>
+    {% for catch in catches %}
+        <li>
+            <strong>{{ catch.species }}</strong> -
+            {{ catch.weight }} lb,
+            {{ catch.length }} in,
+            {{ catch.location }},
+            {{ catch.date }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<div class="card">
+    <p><strong>Total Catches:</strong> {{ total_catches }}</p>
+    <p><strong>Biggest Fish:</strong> {{ biggest if biggest else "None yet" }} lb</p>
+</div>
+
+<h3>Recent Catches</h3>
+<ul>
+    {% for catch in catches %}
+        <li>{{ catch.species }} - {{ catch.weight }} lb at {{ catch.location }} on {{ catch.date }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Unlocked Achievements</h3>
+<ul>
+    {% for achievement in achievements %}
+        <li>🏆 {{ achievement.name }} - {{ achievement.description }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Goals</h3>
+<ul>
+    {% for goal in goals %}
+        <li>
+            {{ goal.title }}:
+            {{ goal.progress }}/{{ goal.target }}
+            {% if goal.completed %}✅{% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

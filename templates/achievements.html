@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Achievements</h2>
+<ul>
+    {% for achievement in achievements %}
+        <li>
+            {% if achievement.unlocked %}
+                🏆
+            {% else %}
+                🔒
+            {% endif %}
+            <strong>{{ achievement.name }}</strong> - {{ achievement.description }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
